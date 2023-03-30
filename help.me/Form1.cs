@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,19 +18,60 @@ namespace help.me
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                if (!txtNome.Text.Equals("") && !txtEMAIL.Text.Equals("") && !txtCPF.Text.Equals("") && !txtSENHA.Text.Equals("") && 
+                    !txtTELEFONE.Text.Equals("")) 
+                {
+                    Cadastrar cadasusuario= new Cadastrar();
+                    cadasusuario.NOME = txtNome.Text;    
+                    cadasusuario.EMAIL = txtEMAIL.Text;  
+                    cadasusuario.CPF = txtCPF.Text;
+                    cadasusuario.SENHA = txtSENHA.Text;  
+                    cadasusuario.TELEFONE = txtTELEFONE.Text;
+
+                    if (cadasusuario.cadastrarusuario())
+                    {
+                        MessageBox.Show($"O usuario  {cadasusuario.NOME} foi cadastrado com sucesso!! ");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel cadastarar o usuario!");
+                    }
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Preencher todos os campos corretamente!");
+                    txtNome.Clear();
+                    txtEMAIL.Clear();   
+                    txtCPF.Clear(); 
+                    txtSENHA.Clear();   
+                    txtTELEFONE.Clear();  
+                    txtNome.Focus();
+                }
+
+
+
+            }
+            catch (Exception ex )
+            {
+
+                MessageBox.Show("erro ao cadastrar usuario" + ex.Message);
+            }
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
     }
+        
 }
