@@ -7,18 +7,13 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-
-
 function Toggle() {
 
     return (
 
         <header className="header" id="header">
             <div className="header_toggle"><i className="bi bi-list" id="header-toggle"></i> </div>
-            <div className="row">
-                <div className="col-3 mr-2">Help Me</div>
-                <div className="header_img col-3"> <img src="https://i.imgur.com/hczKIze.jpg" alt="" /> </div>
-            </div>
+            
 
         </header>
 
@@ -66,9 +61,9 @@ export default function Header() {
                         localStorage.setItem("token", "");
     
                         MySwal.fire({
-                            position: 'top',
-                            icon: 'error',
-                            title: `Erro ${error.response.status}: Sua sessão já havia terminado. Logue novamente.`,
+                            position: 'top-right',
+                            icon: 'success',
+                            title: 'Deslogado com sucesso!',
                             showConfirmButton: false,
                             timer: 3000
                         });

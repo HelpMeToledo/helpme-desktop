@@ -28,19 +28,31 @@ export default function Login() {
             api.post('login', usuario)
                 .then(async (res) => {
 
+                    console.log(res);
                     localStorage.setItem("token", res.data.token);
+                    localStorage.setItem("id_usuario", res.data.usuario.id);
 
-                    if (res.status) {
+                    if (res.data.status == true) {
+
                         MySwal.fire({
                             position: 'top-right',
                             icon: 'success',
-                            title: 'Logado com sucesso!',
+                            title: `Logado com sucesso!`,
                             showConfirmButton: false,
                             timer: 3000
                         });
 
                         return navigate("/", {replace: true});
 
+                    } else if (res.data.status == false){
+
+                        MySwal.fire({
+                            position: 'top',
+                            icon: 'error',
+                            title: `Erro ao logar, por favor, fique atento aos campos:`,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
                     }
                 }).catch(function (error) {
 
@@ -73,6 +85,9 @@ export default function Login() {
 
     return (
 
+
+
+        
         <div>
 
             <div className="container formulario" style={{ width: "500px" }} >

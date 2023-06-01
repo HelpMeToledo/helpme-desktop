@@ -100,7 +100,7 @@ export default function Cadastro() {
                     <div className="row">
                         <div className="form-group col-12">
                             <label><i className="bi bi-person-fill"></i> Nome</label>
-                            <input onChange={handleChange} type="text" name="nome" className="form-control" maxLength={150}>
+                            <input onChange={handleChange} type="text" aria-label="nome" name="nome" className="form-control" maxLength={150}>
                             </input>
                             
                         </div>
@@ -111,13 +111,13 @@ export default function Cadastro() {
 
                         <div className="col-md-6 col-12">
                             <label><i className="bi bi-file-earmark-person"></i> CPF</label>
-                            <input onChange={handleChange} type="text" name="cpf" className="form-control" maxLength={11}>
+                            <input onChange={handleChange} type="text" aria-label="cpf" name="cpf" className="form-control" maxLength={11}>
                             </input>
                         </div>
 
                         <div className="col-md-6 col-12">
                             <label><i className="bi bi-envelope-fill"></i> E-mail</label>
-                            <input onChange={handleChange} type="email" name="email" className="form-control" maxLength={50}>
+                            <input onChange={handleChange} type="email" aria-label="email" name="email" className="form-control" maxLength={50}>
                             </input>
                         </div>
 
@@ -126,21 +126,21 @@ export default function Cadastro() {
                     <div className="row">
 
                         <div className="col-md-6 col-12">
-                            <label><i className="bi bi-shield-lock-fill"></i> Senha</label>
-                            <input onChange={handleChange} type="password" name="password" className="form-control">
+                            <label for="password"><i className="bi bi-shield-lock-fill"></i> Senha</label>
+                            <input id="password" onChange={handleChange} type="password" aria-label="password" name="password" className="form-control">
                             </input>
                         </div>
 
                         <div className="col-md-6 col-12">
                             <label><i className="bi bi-telephone-fill"></i> Telefone</label>
-                            <input onChange={handleChange} type="text" name="telefone" className="form-control" maxLength={11}>
+                            <input onChange={handleChange} type="text" name="telefone" aria-label="telefone" className="form-control" maxLength={11}>
                             </input>
                         </div>
 
                     </div>
 
                     <div className="row justify-content-center">
-                        <input type="submit" className="col-4 btn btn-primary" value="Cadastrar"></input>
+                        <input type="submit" aria-label="submit" className="col-4 btn btn-primary" value="Cadastrar"></input>
                     </div>
                 </form>
 

@@ -9,7 +9,6 @@ import Chamado from "./pages/Chamado";
 import Perfil from "./pages/Perfil";
 import Ativos from "./pages/Ativos";
 import Login from './pages/Login';
-import Protected from './components/Protected';
 
 function App() {
 
@@ -20,14 +19,10 @@ function App() {
 
         <Routes>
 
-          <Route path="/" element={<Protected><Header /></Protected>} >
-
-            <Route path="novo" element={<Protected><Chamado /></Protected>} />
-
-          </Route>
-
+          <Route path="/" element={<Home/>} />
+          <Route path="novo" element={<Chamado/>} />
           <Route path="cadastro" element={<Cadastro />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login />} />          
 
         </Routes>
 
